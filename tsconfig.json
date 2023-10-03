@@ -1,0 +1,21 @@
+{
+  "compilerOptions": {
+    "lib": [
+      "ESNext",
+      "dom"
+    ],
+    "outDir": "lib",
+    "target": "ES2020",
+    "module": "es2020",
+    "baseUrl": "./",
+    "esModuleInterop": false,
+    "moduleResolution": "node",
+    "sourceMap": true,
+  },
+  "include": [
+    "./**/*.ts"
+  ],
+  "exclude": [
+    "node_modules/**/*"
+  ]
+}
