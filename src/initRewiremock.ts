@@ -1,4 +1,4 @@
-import rewiremock from 'rewiremock';
+import * as rewiremock from 'rewiremock/webpack';
 import { addPlugin, plugins } from 'rewiremock';
 
 console.log('[initRewiremock.ts]', module);
