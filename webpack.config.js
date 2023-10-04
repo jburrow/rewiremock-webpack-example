@@ -13,39 +13,22 @@ module.exports = {
         loader: "babel-loader",
         exclude: /node_modules/,
       },
-      {
-        test: /\.js$/,
-        use: ["source-map-loader"],
-        enforce: "pre",
-      },
     ],
   },
   resolve: {
     extensions: [".tsx", ".ts", ".js"],
-    fallback: {
-      stream: require.resolve("stream-browserify"),
-      http: require.resolve("stream-http"),
-      path: require.resolve("path-browserify"),
-    },
   },
   output: {
     filename: "bundle.js",
     path: path.resolve(__dirname, "dist"),
+    publicPath: "/",
   },
   devServer: {
-    static: path.join(__dirname, "dist"),
-    compress: false,
-    hot: true,
-    port: 4000,
+    historyApiFallback: true,
   },
   plugins: [
+    new webpack.NamedModulesPlugin(),
+    new webpack.HotModuleReplacementPlugin(),
     new RewiremockPlugin(),
-    new webpack.ProvidePlugin({
-      process: "process/browser",
-      Buffer: ["buffer", "Buffer"],
-    }),
   ],
-  optimization: {
-    moduleIds: "named",
-  },
 };
